@@ -1,0 +1,462 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Applications\\HRMS\\HRMS-API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{14E0AB02-E10C-8BAA-A03F-BDD02BA64DA3}|HRMS.API\\HRMS.API.csproj|f:\\applications\\hrms\\hrms-api\\hrms.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14E0AB02-E10C-8BAA-A03F-BDD02BA64DA3}|HRMS.API\\HRMS.API.csproj|solutionrelative:hrms.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\hrms.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\hrms.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14E0AB02-E10C-8BAA-A03F-BDD02BA64DA3}|HRMS.API\\HRMS.API.csproj|f:\\applications\\hrms\\hrms-api\\hrms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{14E0AB02-E10C-8BAA-A03F-BDD02BA64DA3}|HRMS.API\\HRMS.API.csproj|solutionrelative:hrms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\hrmsdbcontext\\hrmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\hrmsdbcontext\\hrmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\userroleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\userroleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\salaryconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\salaryconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\payroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\payroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\salary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\roleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\roleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\payrollconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\payrollconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\employmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\employmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\paymentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\paymentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\employmentstatusconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\employmentstatusconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\employeeconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\employeeconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\designationconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\designationconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\paymentstatusconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\paymentstatusconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|f:\\applications\\hrms\\hrms-api\\hrms.infrastructure\\data\\configurations\\departmentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F380414-7E88-8063-76C8-ED73F822396D}|HRMS.Infrastructure\\HRMS.Infrastructure.csproj|solutionrelative:hrms.infrastructure\\data\\configurations\\departmentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\designation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\designation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|f:\\applications\\hrms\\hrms-api\\hrms.domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD85B50-11F8-6FD7-4155-20ADC386B249}|HRMS.Domain\\HRMS.Domain.csproj|solutionrelative:hrms.domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HRMS.Infrastructure",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\HRMS.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\HRMS.Infrastructure.csproj",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\HRMS.Infrastructure.csproj",
+              "RelativeToolTip": "HRMS.Infrastructure\\HRMS.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-08T19:42:26.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.API\\appsettings.json",
+              "RelativeDocumentMoniker": "HRMS.API\\appsettings.json",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.API\\appsettings.json",
+              "RelativeToolTip": "HRMS.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-08T19:41:08.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\DependencyInjection.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T19:36:38.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HRMSDbContext.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\HRMSDbContext\\HRMSDbContext.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\HRMSDbContext\\HRMSDbContext.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\HRMSDbContext\\HRMSDbContext.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\HRMSDbContext\\HRMSDbContext.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAiwBQAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T19:32:02.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserRoleConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\UserRoleConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\UserRoleConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\UserRoleConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\UserRoleConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T19:30:52.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.API\\Program.cs",
+              "RelativeDocumentMoniker": "HRMS.API\\Program.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.API\\Program.cs",
+              "RelativeToolTip": "HRMS.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T09:36:32.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\UserConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T19:27:22.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SalaryConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\SalaryConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\SalaryConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\SalaryConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\SalaryConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T19:23:46.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RoleConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\RoleConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T19:20:51.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Payroll.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Payroll.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\Payroll.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Payroll.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\Payroll.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAcwA4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T16:44:43.896Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Employee.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\Employee.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Employee.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T16:40:18.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Salary.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Salary.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\Salary.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Salary.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\Salary.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T16:41:53.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\User.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T18:34:02.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\UserRole.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\UserRole.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\UserRole.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T18:36:33.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PayrollConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\PayrollConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\PayrollConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\PayrollConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\PayrollConfiguration.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwCcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T19:01:00.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PaymentStatus.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\PaymentStatus.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\PaymentStatus.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\PaymentStatus.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\PaymentStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T16:50:39.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Role.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Role.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\Role.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Role.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\Role.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T18:33:09.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EmploymentStatusConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\EmploymentStatusConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\EmploymentStatusConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\EmploymentStatusConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\EmploymentStatusConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T18:58:22.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EmploymentStatus.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\EmploymentStatus.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\EmploymentStatus.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\EmploymentStatus.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\EmploymentStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T16:53:22.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DesignationConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\DesignationConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\DesignationConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\DesignationConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\DesignationConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T18:56:44.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PaymentStatusConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\PaymentStatusConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\PaymentStatusConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\PaymentStatusConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\PaymentStatusConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T18:59:52.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "DepartmentConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\DepartmentConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\DepartmentConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\DepartmentConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\DepartmentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T18:55:37.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "EmployeeConfiguration.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\EmployeeConfiguration.cs",
+              "RelativeDocumentMoniker": "HRMS.Infrastructure\\Data\\Configurations\\EmployeeConfiguration.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\Data\\Configurations\\EmployeeConfiguration.cs",
+              "RelativeToolTip": "HRMS.Infrastructure\\Data\\Configurations\\EmployeeConfiguration.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwAYAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T18:49:15.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Department.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Department.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\Department.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Department.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T16:55:07.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Designation.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Designation.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\Designation.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\Designation.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\Designation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T16:54:13.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "HRMS.Domain\\Entities\\BaseEntity.cs",
+              "ToolTip": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\Entities\\BaseEntity.cs",
+              "RelativeToolTip": "HRMS.Domain\\Entities\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T16:38:27.115Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

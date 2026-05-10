@@ -1,12 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <Compile Remove="NewFolder\**" />
-    <EmbeddedResource Remove="NewFolder\**" />
-    <None Remove="NewFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HRMS.Application\HRMS.Application.csproj" />
     <ProjectReference Include="..\HRMS.Domain\HRMS.Domain.csproj" />
   </ItemGroup>

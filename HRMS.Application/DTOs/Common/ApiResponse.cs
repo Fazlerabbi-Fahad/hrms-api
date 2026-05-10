@@ -22,7 +22,7 @@ namespace HRMS.Application.DTOs.Common
             };
         }
 
-        public static ApiResponse<T> Failure(List<string> errors, string? message = "Failure", int statusCode = 400)
+        public static ApiResponse<T> Failure(List<string>? errors, string? message = "Failure", int statusCode = 400)
         {
             return new ApiResponse<T>
             {

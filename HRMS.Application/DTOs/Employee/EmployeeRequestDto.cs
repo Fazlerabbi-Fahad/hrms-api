@@ -10,5 +10,6 @@
         public int DepartmentId { get; set; }
         public int DesignationId { get; set; }
         public int EmploymentStatusId { get; set; }
+        public int UserId { get; set; }
     }
 }

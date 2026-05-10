@@ -22,6 +22,8 @@ namespace HRMS.Infrastructure.Data.HRMSDbContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.HasDefaultSchema("HRMS");
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             base.OnModelCreating(modelBuilder);

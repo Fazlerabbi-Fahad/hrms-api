@@ -13,3 +13,4 @@ F:\Applications\HRMS\HRMS-API\HRMS.Application\obj\Debug\net10.0\HRMS.Applicatio
 F:\Applications\HRMS\HRMS-API\HRMS.Application\obj\Debug\net10.0\refint\HRMS.Application.dll
 F:\Applications\HRMS\HRMS-API\HRMS.Application\obj\Debug\net10.0\HRMS.Application.pdb
 F:\Applications\HRMS\HRMS-API\HRMS.Application\obj\Debug\net10.0\ref\HRMS.Application.dll
+F:\Applications\HRMS\HRMS-API\HRMS.Application\obj\Debug\net10.0\HRMS.Application.sourcelink.json

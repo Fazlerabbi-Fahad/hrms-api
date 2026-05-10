@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HRMS.Infrastructure.Data.Configurations
 {
-    public class SalaryConfiguration:IEntityTyperConfiguration<Salary>
+    public class SalaryConfiguration : IEntityTypeConfiguration<Salary>
     {
         public void Configure(EntityTypeBuilder<Salary> builder)
         {

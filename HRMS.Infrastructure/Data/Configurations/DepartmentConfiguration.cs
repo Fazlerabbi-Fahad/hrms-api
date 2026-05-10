@@ -16,7 +16,7 @@ namespace HRMS.Infrastructure.Data.Configurations
 
             builder.HasIndex(d => d.DepartmentName)
                    .IsUnique()
-                   .HasFilter("[Name] IS NOT NULL");
+                   .HasFilter("[DepartmentName] IS NOT NULL");
         }
     }
 }

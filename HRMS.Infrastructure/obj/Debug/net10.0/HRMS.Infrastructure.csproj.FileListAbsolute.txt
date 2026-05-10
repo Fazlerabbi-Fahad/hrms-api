@@ -15,3 +15,6 @@ F:\Applications\HRMS\HRMS-API\HRMS.Infrastructure\obj\Debug\net10.0\HRMS.Infrast
 F:\Applications\HRMS\HRMS-API\HRMS.Infrastructure\obj\Debug\net10.0\refint\HRMS.Infrastructure.dll
 F:\Applications\HRMS\HRMS-API\HRMS.Infrastructure\obj\Debug\net10.0\HRMS.Infrastructure.pdb
 F:\Applications\HRMS\HRMS-API\HRMS.Infrastructure\obj\Debug\net10.0\ref\HRMS.Infrastructure.dll
+F:\Applications\HRMS\HRMS-API\HRMS.Infrastructure\bin\Debug\net10.0\HRMS.Infrastructure.runtimeconfig.json
+F:\Applications\HRMS\HRMS-API\HRMS.Infrastructure\obj\Debug\net10.0\HRMS.Infrastructure.sourcelink.json
+F:\Applications\HRMS\HRMS-API\HRMS.Infrastructure\obj\Debug\net10.0\HRMS.Infrastructure.genruntimeconfig.cache

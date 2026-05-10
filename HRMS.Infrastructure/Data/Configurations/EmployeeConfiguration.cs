@@ -17,17 +17,26 @@ namespace HRMS.Infrastructure.Data.Configurations
             builder.Property(e => e.Email)
                   .HasMaxLength(150);
 
-            builder.Property(e => e.Phone)
+            builder.Property(e => e.PhoneNumber)
                    .IsRequired()
                    .HasMaxLength(20);
+
+            builder.Property(e => e.EmpCode)
+                  .IsRequired()
+                  .HasMaxLength(100);
 
             builder.HasIndex(e => e.Email)
                    .IsUnique()
                    .HasFilter("[Email] IS NOT NULL"); 
 
-            builder.HasIndex(e => e.Phone)
+            builder.HasIndex(e => e.PhoneNumber)
                    .IsUnique()
-                   .HasFilter("[Phone] IS NOT NULL"); 
+                   .HasFilter("[PhoneNumber] IS NOT NULL");
+
+            builder.HasIndex(e => e.EmpCode)
+                   .IsUnique()
+                   .HasFilter("[EmpCode] IS NOT NULL");
+
 
             builder.HasOne(e => e.Department)
                    .WithMany(d => d.Employees)

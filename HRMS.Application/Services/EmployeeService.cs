@@ -3,6 +3,7 @@ using HRMS.Application.DTOs.Employee;
 using HRMS.Application.Interfaces;
 using HRMS.Application.Interfaces.Repository;
 using HRMS.Domain.Entities;
+using System.Reflection.Emit;
 
 namespace HRMS.Application.Services
 {
@@ -77,9 +78,35 @@ namespace HRMS.Application.Services
         {
             try
             {
-                var employee = await _employeeRepository.CreateEmployeeAsync(dto);
 
-                return ApiResponse<EmployeeResponseDto>.Success(null,
+                var newEmployee = new Employee
+                {
+                    Name = dto.Name,
+                    Email = dto.Email,
+                    PhoneNumber = dto.PhoneNumber,
+                    JoiningDate = dto.JoiningDate,
+                    DateOfBirth = dto.DateOfBirth,
+                    DepartmentId = dto.DepartmentId,
+                    DesignationId = dto.DesignationId,
+                    EmploymentStatusId = dto.EmploymentStatusId,
+                    CreatedAt = DateTime.UtcNow,
+                    CreatedBy = dto.UserId
+                };
+                var employee = await _employeeRepository.CreateEmployeeAsync(newEmployee);
+
+                var createdEmployeeDto = new EmployeeResponseDto
+                {
+                    Name = employee.Name,
+                    Email = employee.Email,
+                    PhoneNumber = employee.PhoneNumber,
+                    DateOfBirth = employee.DateOfBirth,
+                    JoiningDate = employee.JoiningDate,
+                    DepartmentName = employee.Department.DepartmentName,
+                    DesignationName = employee.Designation.DesignationDisplayName,
+                    EmploymentStatusName = employee.EmploymentStatus.StatusDisplayName
+                };
+
+                return ApiResponse<EmployeeResponseDto>.Success(createdEmployeeDto,
                                         employee != null ? "Employee created successfully!"
                                             : "Employee creation failed!"
                 );
@@ -98,8 +125,32 @@ namespace HRMS.Application.Services
         {
             try
             {
-                var employee = await _employeeRepository.UpdateEmployeeAsync(id, dto);
-                return ApiResponse<EmployeeResponseDto>.Success(null,
+                var updateEmployeeDto = new Employee
+                {
+                    Name = dto.Name,
+                    Email = dto.Email,
+                    PhoneNumber = dto.PhoneNumber,
+                    DateOfBirth = dto.DateOfBirth,
+                    DepartmentId = dto.DepartmentId,
+                    DesignationId = dto.DesignationId,
+                    EmploymentStatusId = dto.EmploymentStatusId,
+                    UpdatedBy = dto.UserId
+                };
+
+                var employee = await _employeeRepository.UpdateEmployeeAsync(id, updateEmployeeDto);
+
+                var updatedEmployeeDto = new EmployeeResponseDto
+                {
+                    Name = employee.Name,
+                    Email = employee.Email,
+                    PhoneNumber = employee.PhoneNumber,
+                    DateOfBirth = employee.DateOfBirth,
+                    JoiningDate = employee.JoiningDate,
+                    DepartmentName = employee.Department.DepartmentName,
+                    DesignationName = employee.Designation.DesignationDisplayName,
+                    EmploymentStatusName = employee.EmploymentStatus.StatusDisplayName
+                };
+                return ApiResponse<EmployeeResponseDto>.Success(updatedEmployeeDto,
                                       employee != null ? "Employee updated successfully!"
                                           : "Employee update failed!"
               );

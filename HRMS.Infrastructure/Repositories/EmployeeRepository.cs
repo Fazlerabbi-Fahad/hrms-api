@@ -51,26 +51,13 @@ namespace HRMS.Infrastructure.Repositories
             var previousEmployee = await _hrmsDbContext.Employees.OrderByDescending(x=>x.Id).FirstOrDefaultAsync();
             var empCode= await GenerateEmployeeCode(previousEmployee?.EmpCode);
 
+            employee.EmpCode = empCode;
+            employee.IsActive = true;
+            employee.CreatedAt = DateTime.UtcNow;
 
-            var newEmployee = new Employee
-            {
-                Name = employee.Name,
-                Email = employee.Email,
-                EmpCode = empCode,
-                PhoneNumber = employee.PhoneNumber,
-                JoiningDate = employee.JoiningDate,
-                DateOfBirth = employee.DateOfBirth,
-                DepartmentId = employee.DepartmentId,
-                DesignationId = employee.DesignationId,
-                EmploymentStatusId = employee.EmploymentStatusId,
-                CreatedAt = DateTime.UtcNow,
-                CreatedBy = employee.CreatedBy,
-                IsActive = true
-            };
-
-            _hrmsDbContext.Employees.Add(newEmployee);
+            _hrmsDbContext.Employees.Add(employee);
             await _hrmsDbContext.SaveChangesAsync();
-            return newEmployee;
+            return employee;
         }
 
         public async Task<Employee> UpdateEmployeeAsync(int id, Employee employee)
@@ -81,17 +68,8 @@ namespace HRMS.Infrastructure.Repositories
                 throw new Exception("Employee not found");
             }
 
-            existingEmployee.Name = employee.Name;
-            existingEmployee.Email = employee.Email;
-            existingEmployee.PhoneNumber = employee.PhoneNumber;
-            existingEmployee.DateOfBirth = employee.DateOfBirth;
-            existingEmployee.DepartmentId = employee.DepartmentId;
-            existingEmployee.DesignationId = employee.DesignationId;
-            existingEmployee.EmploymentStatusId = employee.EmploymentStatusId;
             existingEmployee.UpdatedAt = DateTime.UtcNow;
-            existingEmployee.UpdatedBy = employee.UpdatedBy;
 
-            _hrmsDbContext.Employees.Update(existingEmployee);
             await _hrmsDbContext.SaveChangesAsync();
             return existingEmployee;
         }
@@ -107,7 +85,6 @@ namespace HRMS.Infrastructure.Repositories
             employee.UpdatedAt = DateTime.UtcNow;
             employee.UpdatedBy = userId;
 
-            _hrmsDbContext.Employees.Update(employee);
             await _hrmsDbContext.SaveChangesAsync();
             return true;
         }

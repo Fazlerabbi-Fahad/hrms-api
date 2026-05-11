@@ -14,7 +14,7 @@ namespace HRMS.Infrastructure.Data.Configurations
             builder.Property(u => u.Email)
                 .IsRequired()
                 .HasMaxLength(150);
-            builder.Property(u => u.ContactNumber) 
+            builder.Property(u => u.PhoneNumber) 
                 .IsRequired()
                 .HasMaxLength(150);
             builder.Property(u => u.PasswordHash)
@@ -23,7 +23,7 @@ namespace HRMS.Infrastructure.Data.Configurations
             builder.HasIndex(u => u.Email)
                    .IsUnique()
                    .HasFilter("[Email] IS NOT NULL");
-            builder.HasIndex(u => u.ContactNumber)
+            builder.HasIndex(u => u.PhoneNumber)
                    .IsUnique()
                    .HasFilter("[ContactNumber] IS NOT NULL");
     }

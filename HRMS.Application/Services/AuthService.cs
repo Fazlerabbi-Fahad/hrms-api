@@ -50,7 +50,7 @@ namespace HRMS.Application.Services
                     Token = token,
                     UserName = user.UserName,
                     Roles = roles,
-                    ExpiresAt = DateTime.UtcNow.AddHours(168)
+                    ExpiresAt = DateTime.UtcNow.AddHours(1)
                 };
                 return ApiResponse<LoginResponseDto>.Success(responseDto, "Login successful!");
             }

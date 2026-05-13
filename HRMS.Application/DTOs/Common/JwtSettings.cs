@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HRMS.Application.DTOs.Common
+﻿namespace HRMS.Application.DTOs.Common
 {
     public class JwtSettings
     {

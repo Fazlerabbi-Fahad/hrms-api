@@ -919,6 +919,7 @@
       },
       "HRMS.Application/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.2.0",
           "HRMS.Domain": "1.0.0"
         },
         "runtime": {

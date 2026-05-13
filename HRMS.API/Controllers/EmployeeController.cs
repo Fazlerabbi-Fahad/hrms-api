@@ -1,12 +1,13 @@
 ﻿using HRMS.Application.DTOs.Employee;
 using HRMS.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRMS.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EmployeeController:ControllerBase
+    public class EmployeeController : BaseController
     {
         public readonly IEmployeeService _employeeService;
 
@@ -14,8 +15,9 @@ namespace HRMS.API.Controllers
         {
             _employeeService = employeeService;
         }
-         
+
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllEmployees()
         {
             var result = await _employeeService.GetAllEmployeesAsync();
@@ -23,6 +25,7 @@ namespace HRMS.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetEmployeeById(int id)
         {
             var result = await _employeeService.GetEmployeeByIdAsync(id);
@@ -30,6 +33,7 @@ namespace HRMS.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,HRAdmin")]
         public async Task<IActionResult> CreateEmployee([FromBody] EmployeeRequestDto dto)
         {
             var result = await _employeeService.CreateEmployeeAsync(dto);
@@ -37,6 +41,7 @@ namespace HRMS.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin,HRAdmin")]
         public async Task<IActionResult> UpdateEmployee(int id, [FromBody] EmployeeUpdateRequestDto dto)
         {
             var result = await _employeeService.UpdateEmployeeAsync(id, dto);
@@ -44,8 +49,10 @@ namespace HRMS.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployee(int id,[FromQuery] int userId)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteEmployee(int id)
         {
+            var userId = GetCurrentUserId();
             var result = await _employeeService.DeleteEmployeeAsync(id, userId);
             return StatusCode(result.StatusCode, result);
         }

@@ -1,6 +1,4 @@
-﻿using HRMS.Application.DTOs.Common;
-using HRMS.Application.DTOs.Employee;
-using HRMS.Application.Interfaces.Repository;
+﻿using HRMS.Application.Interfaces.Repository;
 using HRMS.Domain.Entities;
 using HRMS.Infrastructure.Data.HRMSDbContext;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +20,7 @@ namespace HRMS.Infrastructure.Repositories
                         .Include(e => e.Department)
                         .Include(e => e.Designation)
                         .Include(e => e.EmploymentStatus)
-                        .Where(e =>e.IsActive)
+                        .Where(e => e.IsActive)
                         .ToListAsync();
         }
 
@@ -38,18 +36,17 @@ namespace HRMS.Infrastructure.Repositories
 
         public async Task<Employee> CreateEmployeeAsync(Employee employee)
         {
-            if(employee == null)
+            if (employee == null)
             {
                 throw new InvalidOperationException("Employee data is null");
-
             }
             var existingEmployee = await _hrmsDbContext.Employees.Where(x => (x.PhoneNumber == employee.PhoneNumber || x.Email == employee.Email) && x.IsActive).FirstOrDefaultAsync();
-            if (existingEmployee!=null)
+            if (existingEmployee != null)
             {
                 throw new InvalidOperationException("Employee with this email or phone already exists");
             }
-            var previousEmployee = await _hrmsDbContext.Employees.OrderByDescending(x=>x.Id).FirstOrDefaultAsync();
-            var empCode= await GenerateEmployeeCode(previousEmployee?.EmpCode);
+            var previousEmployee = await _hrmsDbContext.Employees.OrderByDescending(x => x.Id).FirstOrDefaultAsync();
+            var empCode = await GenerateEmployeeCode(previousEmployee?.EmpCode);
 
             employee.EmpCode = empCode;
             employee.IsActive = true;
@@ -74,7 +71,7 @@ namespace HRMS.Infrastructure.Repositories
             return existingEmployee;
         }
 
-        public async Task<bool> DeleteEmployeeAsync(int id,int userId)
+        public async Task<bool> DeleteEmployeeAsync(int id, int userId)
         {
             var employee = await _hrmsDbContext.Employees.Where(e => e.Id == id).FirstOrDefaultAsync();
             if (employee == null)
@@ -102,7 +99,7 @@ namespace HRMS.Infrastructure.Repositories
 
             if (!string.IsNullOrEmpty(code) && code.StartsWith("EMP"))
             {
-                string numberPart = code.Replace("EMP","");
+                string numberPart = code.Replace("EMP", "");
                 if (int.TryParse(numberPart, out int currentNumber))
                 {
                     nextNumber = currentNumber + 1;

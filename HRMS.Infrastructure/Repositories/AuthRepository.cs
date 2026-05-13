@@ -16,14 +16,43 @@ namespace HRMS.Infrastructure.Repositories
 
         public async Task<User?> GetByUserNameAsync(string username)
         {
-            var user = await _hrmsDbContext.Users.Where(u => u.UserName == username)
+            var user = await _hrmsDbContext.Users
+                                            .Include(u => u.UserRoles)
+                                                .ThenInclude(ur => ur.Role)
+                                            .Where(u => u.UserName == username)
                                                 .FirstOrDefaultAsync();
 
-            if (user == null)
-            {
-                return null;
-            }
             return user;
+        }
+
+        public async Task<User> GetByIdAsync(int id)
+        {
+            var user = await _hrmsDbContext.Users
+                                            .Include(u => u.UserRoles)
+                                                .ThenInclude(ur => ur.Role)
+                                            .Where(u => u.Id == id)
+                                                .FirstOrDefaultAsync();
+
+            return user;
+        }
+
+        public async Task<User> CreateUserAsync(User user)
+        {
+            await _hrmsDbContext.Users.AddAsync(user);
+            await _hrmsDbContext.SaveChangesAsync();
+
+            return user;
+        }
+
+        public async Task UpdateLastLoginAsync(int userId)
+        {
+            var user = await _hrmsDbContext.Users.FindAsync(userId);
+            if (user != null)
+            {
+                user.LastLoginAt = DateTime.UtcNow;
+                _hrmsDbContext.Users.Update(user);
+                await _hrmsDbContext.SaveChangesAsync();
+            }
         }
     }
 }

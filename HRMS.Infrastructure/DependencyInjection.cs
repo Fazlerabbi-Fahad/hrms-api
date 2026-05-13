@@ -1,6 +1,9 @@
-﻿using HRMS.Application.Interfaces.Repository;
+﻿using HRMS.Application.DTOs.Common;
+using HRMS.Application.Interfaces;
+using HRMS.Application.Interfaces.Repository;
 using HRMS.Infrastructure.Data.HRMSDbContext;
 using HRMS.Infrastructure.Repositories;
+using HRMS.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +18,15 @@ namespace HRMS.Infrastructure
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             #region Register Repositories
+
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
+            services.AddScoped<ITokenService, TokenService>();
+
+            services.AddScoped<IAuthRepository, AuthRepository>();
+
+            services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
+
             #endregion Register Repositories
 
             return services;

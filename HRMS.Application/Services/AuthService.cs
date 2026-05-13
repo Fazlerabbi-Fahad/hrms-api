@@ -2,6 +2,7 @@
 using HRMS.Application.DTOs.Common;
 using HRMS.Application.Interfaces;
 using HRMS.Application.Interfaces.Repository;
+using HRMS.Domain.Entities;
 
 namespace HRMS.Application.Services
 {
@@ -23,19 +24,19 @@ namespace HRMS.Application.Services
                 var user = await _authRepository.GetByUserNameAsync(dto.Username);
                 if (user == null)
                 {
-                    return ApiResponse<LoginResponseDto>.Failure(null, "Invalid username or password.", 401);
+                    return ApiResponse<LoginResponseDto>.Failure(null, "Invalid username or password!", 401);
                 }
 
                 bool isPasswordValid = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
 
                 if (!isPasswordValid)
                 {
-                    return ApiResponse<LoginResponseDto>.Failure(null, "Invalid username or password.", 401);
+                    return ApiResponse<LoginResponseDto>.Failure(null, "Invalid username or password!", 401);
                 }
 
                 if (!user.IsActive)
                 {
-                    return ApiResponse<LoginResponseDto>.Failure(null, "User account is deactivate.", 403);
+                    return ApiResponse<LoginResponseDto>.Failure(null, "User account is deactivate!", 403);
                 }
 
                 var roles = user.UserRoles.Select(ur => ur.Role.RoleName).ToList();
@@ -51,11 +52,49 @@ namespace HRMS.Application.Services
                     Roles = roles,
                     ExpiresAt = DateTime.UtcNow.AddHours(168)
                 };
-                return ApiResponse<LoginResponseDto>.Success(responseDto, "Login successful.");
+                return ApiResponse<LoginResponseDto>.Success(responseDto, "Login successful!");
             }
             catch (Exception ex)
             {
-                return ApiResponse<LoginResponseDto>.Failure(new List<string> { ex.Message }, "An error occurred during login.", 500);
+                return ApiResponse<LoginResponseDto>.Failure(new List<string> { ex.Message }, "An error occurred during login!", 500);
+            }
+        }
+
+        public async Task<ApiResponse<bool>> RegisterAsync(RegisterRequestDto dto)
+        {
+            try
+            {
+                var existingUser = await _authRepository.GetByUserNameAsync(dto.Username);
+                if (existingUser != null)
+                {
+                    return ApiResponse<bool>.Failure(null, "Username already exists!", 409);
+                }
+
+                var passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
+                var user = new User
+                {
+                    UserName = dto.Username,
+                    PasswordHash = passwordHash,
+                    Email = dto.Email,
+                    PhoneNumber = dto.PhoneNumber,
+                    IsActive = true,
+                    CreatedAt = DateTime.UtcNow,
+
+                    UserRoles = dto.RoleIds.Select(roleId => new UserRole
+                    {
+                        RoleId = roleId,
+                        AssignedAt = DateTime.UtcNow
+                    }).ToList()
+                };
+
+                await _authRepository.CreateUserAsync(user);
+
+                return ApiResponse<bool>.Success(true, "Registration successful!", 201);
+            }
+            catch (Exception ex)
+            {
+                return ApiResponse<bool>.Failure(new List<string> { ex.Message }, "An error occurred during registration.", 500);
             }
         }
     }

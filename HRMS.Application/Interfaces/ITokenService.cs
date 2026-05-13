@@ -1,7 +1,9 @@
-﻿namespace HRMS.Application.Interfaces
+﻿using HRMS.Domain.Entities;
+
+namespace HRMS.Application.Interfaces
 {
     public interface ITokenService
     {
-        string GenerateToken(int userId, string email, List<string> roles);
+        string GenerateToken(User user, List<string> roles);
     }
 }

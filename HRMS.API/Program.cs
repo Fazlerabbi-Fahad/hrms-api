@@ -8,10 +8,10 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // ── Service Registration (DI Container) ─────────────────
-//builder.Services.AddControllers();
+builder.Services.AddControllers();
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
-var secretKey = jwtSettings["SecretKey"];
+var secretKey = jwtSettings.SecretKey;
 
 builder.Services.AddAuthentication(options =>
 {
@@ -26,14 +26,14 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = jwtSettings["Issuer"],
-        ValidAudience = jwtSettings["Audience"],
+        ValidIssuer = jwtSettings.Issuer,
+        ValidAudience = jwtSettings.Audience,
         IssuerSigningKey = new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(secretKey!))
     };
 });
 
-builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationServices();
@@ -53,6 +53,14 @@ if (app.Environment.IsDevelopment())
 {
     //app.MapOpenApi();
 }
+
+app.Use(async (context,next)=>
+{
+    context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
+    context.Response.Headers.Append("X-Frame-Options", "DENY");
+    context.Response.Headers.Append("X-XSS-Protection", "1; mode=block");
+    await next();
+});
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

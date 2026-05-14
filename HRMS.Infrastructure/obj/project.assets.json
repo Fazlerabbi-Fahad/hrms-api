@@ -4345,23 +4345,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
+    "C:\\Users\\Priyoshop\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\HRMS.Infrastructure.csproj",
+      "projectUniqueName": "D:\\OMS\\New folder\\hrms-api\\HRMS.Infrastructure\\HRMS.Infrastructure.csproj",
       "projectName": "HRMS.Infrastructure",
-      "projectPath": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\HRMS.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Infrastructure\\obj\\",
+      "projectPath": "D:\\OMS\\New folder\\hrms-api\\HRMS.Infrastructure\\HRMS.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\Priyoshop\\.nuget\\packages\\",
+      "outputPath": "D:\\OMS\\New folder\\hrms-api\\HRMS.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Priyoshop\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4374,14 +4374,13 @@
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Application\\HRMS.Application.csproj": {
-              "projectPath": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Application\\HRMS.Application.csproj"
+            "D:\\OMS\\New folder\\hrms-api\\HRMS.Application\\HRMS.Application.csproj": {
+              "projectPath": "D:\\OMS\\New folder\\hrms-api\\HRMS.Application\\HRMS.Application.csproj"
             },
-            "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\HRMS.Domain.csproj": {
-              "projectPath": "F:\\Applications\\HRMS\\HRMS-API\\HRMS.Domain\\HRMS.Domain.csproj"
+            "D:\\OMS\\New folder\\hrms-api\\HRMS.Domain\\HRMS.Domain.csproj": {
+              "projectPath": "D:\\OMS\\New folder\\hrms-api\\HRMS.Domain\\HRMS.Domain.csproj"
             }
           }
         }
@@ -4396,11 +4395,10 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net10.0": {
-        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "BCrypt.Net-Next": {
@@ -4454,7 +4452,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

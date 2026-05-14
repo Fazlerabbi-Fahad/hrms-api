@@ -8,6 +8,7 @@ namespace HRMS.Infrastructure.Repositories
     public class EmployeeRepository : IEmployeeRepository
     {
         private readonly HRMSDbContext _hrmsDbContext;
+        private readonly ILogger<EmployeeRepository> _logger;
 
         public EmployeeRepository(HRMSDbContext hrmsDbContext)
         {
@@ -43,6 +44,7 @@ namespace HRMS.Infrastructure.Repositories
             var existingEmployee = await _hrmsDbContext.Employees.Where(x => (x.PhoneNumber == employee.PhoneNumber || x.Email == employee.Email) && x.IsActive).FirstOrDefaultAsync();
             if (existingEmployee != null)
             {
+                _logger.LogWarning("Employee already found!", employee.Name);
                 throw new InvalidOperationException("Employee with this email or phone already exists");
             }
             var previousEmployee = await _hrmsDbContext.Employees.OrderByDescending(x => x.Id).FirstOrDefaultAsync();
@@ -62,6 +64,7 @@ namespace HRMS.Infrastructure.Repositories
             var existingEmployee = await _hrmsDbContext.Employees.Where(x => x.Id == id && x.IsActive).FirstOrDefaultAsync();
             if (existingEmployee == null)
             {
+                _logger.LogWarning("Employee not found!", employee.Name);
                 throw new Exception("Employee not found");
             }
 

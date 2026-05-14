@@ -10,92 +10,85 @@ namespace HRMS.Application.Services
     {
         private readonly IAuthRepository _authRepository;
         private readonly ITokenService _tokenService;
+        private readonly ILogger<AuthService> _logger;
 
-        public AuthService(IAuthRepository authRepository, ITokenService tokenService)
+        public AuthService(IAuthRepository authRepository, ITokenService tokenService, ILogger<AuthService> logger)
         {
             _authRepository = authRepository;
             _tokenService = tokenService;
+            _logger = logger;
         }
 
         public async Task<ApiResponse<LoginResponseDto>> LoginAsync(LoginRequestDto dto)
         {
-            try
+            var user = await _authRepository.GetByUserNameAsync(dto.Username);
+            if (user == null)
             {
-                var user = await _authRepository.GetByUserNameAsync(dto.Username);
-                if (user == null)
-                {
-                    return ApiResponse<LoginResponseDto>.Failure(null, "Invalid username or password!", 401);
-                }
-
-                bool isPasswordValid = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
-
-                if (!isPasswordValid)
-                {
-                    return ApiResponse<LoginResponseDto>.Failure(null, "Invalid username or password!", 401);
-                }
-
-                if (!user.IsActive)
-                {
-                    return ApiResponse<LoginResponseDto>.Failure(null, "User account is deactivate!", 403);
-                }
-
-                var roles = user.UserRoles.Select(ur => ur.Role.RoleName).ToList();
-
-                var token = _tokenService.GenerateToken(user, roles);
-
-                await _authRepository.UpdateLastLoginAsync(user.Id);
-
-                var responseDto = new LoginResponseDto
-                {
-                    Token = token,
-                    UserName = user.UserName,
-                    Roles = roles,
-                    ExpiresAt = DateTime.UtcNow.AddHours(1)
-                };
-                return ApiResponse<LoginResponseDto>.Success(responseDto, "Login successful!");
+                return ApiResponse<LoginResponseDto>.Failure(null, "Invalid username or password!", 401);
             }
-            catch (Exception ex)
+
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
+
+            if (!isPasswordValid)
             {
-                return ApiResponse<LoginResponseDto>.Failure(new List<string> { ex.Message }, "An error occurred during login!", 500);
+                _logger.LogWarning("Failed login attempt for username {Username}", dto.Username);
+                return ApiResponse<LoginResponseDto>.Failure(null, "Invalid username or password!", 401);
             }
+
+            if (!user.IsActive)
+            {
+                _logger.LogWarning("Failed login attempt for username {Username}", dto.Username);
+                return ApiResponse<LoginResponseDto>.Failure(null, "User account is deactivate!", 403);
+            }
+
+            var roles = user.UserRoles.Select(ur => ur.Role.RoleName).ToList();
+
+            var token = _tokenService.GenerateToken(user, roles);
+
+            await _authRepository.UpdateLastLoginAsync(user.Id);
+            _logger.LogInformation("User {Username} logged in successfully", dto.Username);
+
+            var responseDto = new LoginResponseDto
+            {
+                Token = token,
+                UserName = user.UserName,
+                Roles = roles,
+                ExpiresAt = DateTime.UtcNow.AddHours(1)
+            };
+            return ApiResponse<LoginResponseDto>.Success(responseDto, "Login successful!");
         }
 
         public async Task<ApiResponse<bool>> RegisterAsync(RegisterRequestDto dto)
         {
-            try
+            var existingUser = await _authRepository.GetByUserNameAsync(dto.Username);
+            if (existingUser != null)
             {
-                var existingUser = await _authRepository.GetByUserNameAsync(dto.Username);
-                if (existingUser != null)
-                {
-                    return ApiResponse<bool>.Failure(null, "Username already exists!", 409);
-                }
-
-                var passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
-
-                var user = new User
-                {
-                    UserName = dto.Username,
-                    PasswordHash = passwordHash,
-                    Email = dto.Email,
-                    PhoneNumber = dto.PhoneNumber,
-                    IsActive = true,
-                    CreatedAt = DateTime.UtcNow,
-
-                    UserRoles = dto.RoleIds.Select(roleId => new UserRole
-                    {
-                        RoleId = roleId,
-                        AssignedAt = DateTime.UtcNow
-                    }).ToList()
-                };
-
-                await _authRepository.CreateUserAsync(user);
-
-                return ApiResponse<bool>.Success(true, "Registration successful!", 201);
+                _logger.LogWarning("Failed registration attempt for username {Username}", dto.Username);
+                return ApiResponse<bool>.Failure(null, "Username already exists!", 409);
             }
-            catch (Exception ex)
+
+            var passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
+            var user = new User
             {
-                return ApiResponse<bool>.Failure(new List<string> { ex.Message }, "An error occurred during registration.", 500);
-            }
+                UserName = dto.Username,
+                PasswordHash = passwordHash,
+                Email = dto.Email,
+                PhoneNumber = dto.PhoneNumber,
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow,
+
+                UserRoles = dto.RoleIds.Select(roleId => new UserRole
+                {
+                    RoleId = roleId,
+                    AssignedAt = DateTime.UtcNow
+                }).ToList()
+            };
+
+            await _authRepository.CreateUserAsync(user);
+            _logger.LogInformation("User {Username} registered in successfully", dto.Username);
+
+            return ApiResponse<bool>.Success(true, "Registration successful!", 201);
         }
     }
 }

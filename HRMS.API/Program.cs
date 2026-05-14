@@ -4,6 +4,8 @@ using HRMS.Application.DTOs.Common;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Serilog;
+using HRMS.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +35,17 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
+    .MinimumLevel.Override("Microsoft.EntityFrameworkCore", Serilog.Events.LogEventLevel.Warning)
+    .Enrich.FromLogContext()
+    .Enrich.WithMachineName()
+    .WriteTo.Console(outputTemplate:
+                    "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -54,7 +67,7 @@ if (app.Environment.IsDevelopment())
     //app.MapOpenApi();
 }
 
-app.Use(async (context,next)=>
+app.Use(async (context, next) =>
 {
     context.Response.Headers.Append("X-Content-Type-Options", "nosniff");
     context.Response.Headers.Append("X-Frame-Options", "DENY");
@@ -62,6 +75,7 @@ app.Use(async (context,next)=>
     await next();
 });
 
+app.UseMiddleware<GlobalExceptionMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

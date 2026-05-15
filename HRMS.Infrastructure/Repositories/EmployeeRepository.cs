@@ -1,7 +1,10 @@
-﻿using HRMS.Application.Interfaces.Repository;
+﻿using HRMS.Application.DTOs.Employee;
+using HRMS.Application.Interfaces;
+using HRMS.Application.Interfaces.Repository;
 using HRMS.Domain.Entities;
 using HRMS.Infrastructure.Data.HRMSDbContext;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace HRMS.Infrastructure.Repositories
 {
@@ -10,19 +13,60 @@ namespace HRMS.Infrastructure.Repositories
         private readonly HRMSDbContext _hrmsDbContext;
         private readonly ILogger<EmployeeRepository> _logger;
 
-        public EmployeeRepository(HRMSDbContext hrmsDbContext)
+        public EmployeeRepository(HRMSDbContext hrmsDbContext, ILogger<EmployeeRepository> logger)
         {
             _hrmsDbContext = hrmsDbContext;
+            _logger = logger;
         }
 
-        public async Task<List<Employee>> GetAllEmployeesAsync()
+        public async Task<(List<Employee>,int totalCount)> GetAllEmployeesAsync(EmployeeQueryParameters parameters)
         {
-            return await _hrmsDbContext.Employees
+                var query = _hrmsDbContext.Employees
                         .Include(e => e.Department)
                         .Include(e => e.Designation)
                         .Include(e => e.EmploymentStatus)
-                        .Where(e => e.IsActive)
-                        .ToListAsync();
+                        .Where(e => e.IsActive);
+
+                if (parameters.DesignationId.HasValue)
+                {
+                    query = query.Where(e => e.DesignationId == parameters.DesignationId.Value);
+                }
+
+                if (parameters.DepartmentId.HasValue)
+                {
+                    query = query.Where(e => e.DepartmentId == parameters.DepartmentId.Value);
+                }
+
+                if (parameters.EmploymentStatusId.HasValue)
+                {
+                    query = query.Where(e => e.EmploymentStatusId == parameters.EmploymentStatusId.Value);
+                }
+
+                if (!string.IsNullOrEmpty(parameters.Search))
+                    query = query.Where(e =>
+                        e.Name.Contains(parameters.Search) ||
+                        e.Email!.Contains(parameters.Search) ||
+                        e.PhoneNumber.Contains(parameters.Search));
+
+                query = parameters.SortBy?.ToLower() switch
+                {
+                    "name" => parameters.SortDirection == "desc"
+                            ? query.OrderByDescending(e => e.Name)
+                            : query.OrderBy(e => e.Name),
+                    "joiningdate" => parameters.SortDirection == "desc"
+                            ? query.OrderByDescending(e => e.JoiningDate)
+                            : query.OrderBy(e => e.JoiningDate),
+                    _ => query.OrderBy(e => e.Id),
+                };
+
+                var totalCount = await query.CountAsync();
+
+                var employee = await query
+                                    .Skip((parameters.PageSize - 1) * totalCount)
+                                    .Take(parameters.PageSize)
+                                    .ToListAsync();
+                return (employee, totalCount);
+         
         }
 
         public async Task<Employee?> GetEmployeeByIdAsync(int id)
@@ -37,6 +81,7 @@ namespace HRMS.Infrastructure.Repositories
 
         public async Task<Employee> CreateEmployeeAsync(Employee employee)
         {
+            
             if (employee == null)
             {
                 throw new InvalidOperationException("Employee data is null");
@@ -54,8 +99,7 @@ namespace HRMS.Infrastructure.Repositories
             employee.IsActive = true;
             employee.CreatedAt = DateTime.UtcNow;
 
-            _hrmsDbContext.Employees.Add(employee);
-            await _hrmsDbContext.SaveChangesAsync();
+            await _hrmsDbContext.Employees.AddAsync(employee);
             return employee;
         }
 
@@ -70,7 +114,7 @@ namespace HRMS.Infrastructure.Repositories
 
             existingEmployee.UpdatedAt = DateTime.UtcNow;
 
-            await _hrmsDbContext.SaveChangesAsync();
+            //await _hrmsDbContext.Employees.UpdateAsync(employee);
             return existingEmployee;
         }
 
@@ -85,7 +129,7 @@ namespace HRMS.Infrastructure.Repositories
             employee.UpdatedAt = DateTime.UtcNow;
             employee.UpdatedBy = userId;
 
-            await _hrmsDbContext.SaveChangesAsync();
+
             return true;
         }
 

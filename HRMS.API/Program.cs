@@ -6,14 +6,22 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Serilog;
 using HRMS.API.Middleware;
+using Asp.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // ── Service Registration (DI Container) ─────────────────
 builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+});
 
-var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
-var secretKey = jwtSettings.SecretKey;
+var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>()
+    ?? throw new InvalidOperationException("JwtSettings is not configured in appsettings.json");
 
 builder.Services.AddAuthentication(options =>
 {
@@ -31,7 +39,7 @@ builder.Services.AddAuthentication(options =>
         ValidIssuer = jwtSettings.Issuer,
         ValidAudience = jwtSettings.Audience,
         IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(secretKey!))
+            Encoding.UTF8.GetBytes(jwtSettings.SecretKey!))
     };
 });
 
@@ -47,6 +55,17 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 builder.Services.AddAuthorization();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationServices();

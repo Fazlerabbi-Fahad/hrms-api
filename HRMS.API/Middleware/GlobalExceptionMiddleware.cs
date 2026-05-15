@@ -1,4 +1,5 @@
 ﻿using HRMS.Application.DTOs.Common;
+using System.Text.Json;
 
 namespace HRMS.API.Middleware
 {
@@ -32,7 +33,7 @@ namespace HRMS.API.Middleware
         {
             context.Response.ContentType = "application/json";
 
-            var { statusCode,message } = exception switch
+            var (statusCode, message) = exception switch
             {
                 InvalidOperationException => (409, exception.Message),
                 UnauthorizedAccessException => (401, exception.Message),

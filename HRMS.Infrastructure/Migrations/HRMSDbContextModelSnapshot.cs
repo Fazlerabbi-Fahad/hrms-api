@@ -178,9 +178,13 @@ namespace HRMS.Infrastructure.Migrations
 
                     b.HasIndex("EmploymentStatusId");
 
+                    b.HasIndex("IsActive");
+
                     b.HasIndex("PhoneNumber")
                         .IsUnique()
                         .HasFilter("[PhoneNumber] IS NOT NULL");
+
+                    b.HasIndex("IsActive", "DepartmentId");
 
                     b.ToTable("Employees", "HRMS");
                 });
@@ -355,11 +359,13 @@ namespace HRMS.Infrastructure.Migrations
 
                     b.Property<string>("RoleDisplayName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("RoleName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -368,6 +374,10 @@ namespace HRMS.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RoleName")
+                        .IsUnique()
+                        .HasFilter("[RoleName] IS NOT NULL");
 
                     b.ToTable("Roles", "HRMS");
                 });
@@ -432,7 +442,7 @@ namespace HRMS.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CreatedBy")

@@ -3,6 +3,8 @@ using HRMS.Application.DTOs.Common;
 using HRMS.Application.Interfaces;
 using HRMS.Application.Interfaces.Repository;
 using HRMS.Domain.Entities;
+using Microsoft.Extensions.Logging;
+
 
 namespace HRMS.Application.Services
 {
@@ -60,6 +62,7 @@ namespace HRMS.Application.Services
 
         public async Task<ApiResponse<bool>> RegisterAsync(RegisterRequestDto dto)
         {
+
             var existingUser = await _authRepository.GetByUserNameAsync(dto.Username);
             if (existingUser != null)
             {

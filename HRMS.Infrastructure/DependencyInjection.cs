@@ -27,6 +27,10 @@ namespace HRMS.Infrastructure
 
             services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
+            services.AddScoped<ICacheService, CacheService>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             #endregion Register Repositories
 
             return services;

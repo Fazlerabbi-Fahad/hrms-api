@@ -1,4 +1,5 @@
-﻿using HRMS.Application.DTOs.Employee;
+﻿using Asp.Versioning;
+using HRMS.Application.DTOs.Employee;
 using HRMS.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -6,7 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace HRMS.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize]
     public class EmployeeController : BaseController
     {
         public readonly IEmployeeService _employeeService;
@@ -18,9 +21,9 @@ namespace HRMS.API.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetAllEmployees()
+        public async Task<IActionResult> GetAllEmployees([FromQuery] EmployeeQueryParameters parameters)
         {
-            var result = await _employeeService.GetAllEmployeesAsync();
+            var result = await _employeeService.GetAllEmployeesAsync(parameters);
             return StatusCode(result.StatusCode, result);
         }
 

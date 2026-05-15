@@ -5,7 +5,7 @@ namespace HRMS.Application.Interfaces.Repository
 {
     public interface IEmployeeRepository
     {
-        Task<List<Employee>> GetAllEmployeesAsync();
+        Task<(List<Employee>,int totalCount)> GetAllEmployeesAsync(EmployeeQueryParameters parameters);
         Task<Employee?> GetEmployeeByIdAsync(int id);
         Task<Employee> CreateEmployeeAsync(Employee employee);
         Task<Employee> UpdateEmployeeAsync(int id, Employee employee);

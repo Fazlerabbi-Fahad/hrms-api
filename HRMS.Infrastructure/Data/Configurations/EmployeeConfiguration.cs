@@ -37,6 +37,12 @@ namespace HRMS.Infrastructure.Data.Configurations
                    .IsUnique()
                    .HasFilter("[EmpCode] IS NOT NULL");
 
+            builder.HasIndex(e => e.DepartmentId);
+            builder.HasIndex(e => e.DesignationId);
+            builder.HasIndex(e => e.EmploymentStatusId);
+            builder.HasIndex(e => e.IsActive);
+
+            builder.HasIndex(e => new { e.IsActive, e.DepartmentId });
 
             builder.HasOne(e => e.Department)
                    .WithMany(d => d.Employees)

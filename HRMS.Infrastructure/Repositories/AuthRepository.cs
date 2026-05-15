@@ -1,4 +1,5 @@
-﻿using HRMS.Application.Interfaces.Repository;
+﻿using HRMS.Application.Interfaces;
+using HRMS.Application.Interfaces.Repository;
 using HRMS.Domain.Entities;
 using HRMS.Infrastructure.Data.HRMSDbContext;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,6 @@ namespace HRMS.Infrastructure.Repositories
     public class AuthRepository : IAuthRepository
     {
         private readonly HRMSDbContext _hrmsDbContext;
-
         public AuthRepository(HRMSDbContext hrmsDbContext)
         {
             _hrmsDbContext = hrmsDbContext;
@@ -38,8 +38,8 @@ namespace HRMS.Infrastructure.Repositories
 
         public async Task<User> CreateUserAsync(User user)
         {
+            
             await _hrmsDbContext.Users.AddAsync(user);
-            await _hrmsDbContext.SaveChangesAsync();
 
             return user;
         }
@@ -50,7 +50,6 @@ namespace HRMS.Infrastructure.Repositories
             if (user != null)
             {
                 user.LastLoginAt = DateTime.UtcNow;
-                _hrmsDbContext.Users.Update(user);
                 await _hrmsDbContext.SaveChangesAsync();
             }
         }

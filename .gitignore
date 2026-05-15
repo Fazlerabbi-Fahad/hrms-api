@@ -1,6 +1,17 @@
+# Environment-specific settings with secrets
+appsettings.Development.json
+appsettings.Production.json
+
+# User secrets
+**/Properties/launchSettings.json
+
+# Build outputs
+**/bin/
+**/obj/
+
+# Logs
+**/Logs/
+
+# VS files
 .vs/
-*.vsidx
-*.suo
 *.user
-bin/
-obj/

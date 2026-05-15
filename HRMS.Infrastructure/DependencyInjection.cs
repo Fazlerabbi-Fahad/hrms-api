@@ -20,6 +20,12 @@ namespace HRMS.Infrastructure
             #region Register Repositories
 
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<ISalaryRepository, SalaryRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IDesignationRepository, DesignationRepository>();
+            services.AddScoped<IEmploymentStatusRepository, EmploymentStatusRepository>();
+            services.AddScoped<IPaymentStatusRepository, PaymentStatusRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
 
             services.AddScoped<ITokenService, TokenService>();
 

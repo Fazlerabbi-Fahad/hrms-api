@@ -1,7 +1,6 @@
 ﻿using Asp.Versioning;
 using HRMS.Application.DTOs.Auth;
 using HRMS.Application.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HRMS.API.Controllers
@@ -9,7 +8,6 @@ namespace HRMS.API.Controllers
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
-    [Authorize]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;

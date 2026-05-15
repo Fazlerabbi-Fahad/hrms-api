@@ -11,8 +11,13 @@ namespace HRMS.Application
             #region Register Services
 
             services.AddScoped<IEmployeeService, EmployeeService>();
-
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ISalaryService, SalaryService>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
+            services.AddScoped<IDesignationService, DesignationService>();
+            services.AddScoped<IEmploymentStatusService, EmploymentStatusService>();
+            services.AddScoped<IPaymentStatusService, PaymentStatusService>();
+            services.AddScoped<IRoleService, RoleService>();
 
             #endregion Register Services
 

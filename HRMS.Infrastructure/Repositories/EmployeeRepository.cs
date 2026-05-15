@@ -1,5 +1,4 @@
 ﻿using HRMS.Application.DTOs.Employee;
-using HRMS.Application.Interfaces;
 using HRMS.Application.Interfaces.Repository;
 using HRMS.Domain.Entities;
 using HRMS.Infrastructure.Data.HRMSDbContext;
@@ -131,13 +130,6 @@ namespace HRMS.Infrastructure.Repositories
 
 
             return true;
-        }
-
-        public async Task<bool> ExistsAsync(int id)
-        {
-            return await _hrmsDbContext.Employees
-                        .Where(e => e.Id == id && e.IsActive)
-                        .AnyAsync();
         }
 
         private async Task<string> GenerateEmployeeCode(string? code)

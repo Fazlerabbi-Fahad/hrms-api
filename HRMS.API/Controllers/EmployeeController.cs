@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning;
+using HRMS.Application.Constants;
 using HRMS.Application.DTOs.Employee;
 using HRMS.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -36,7 +37,7 @@ namespace HRMS.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin,HRAdmin")]
+        [Authorize(Roles = AppConstants.Roles.Admin + "," + AppConstants.Roles.HRAdmin)]
         public async Task<IActionResult> CreateEmployee([FromBody] EmployeeRequestDto dto)
         {
             var result = await _employeeService.CreateEmployeeAsync(dto);
@@ -44,7 +45,7 @@ namespace HRMS.API.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin,HRAdmin")]
+        [Authorize(Roles = AppConstants.Roles.Admin + "," + AppConstants.Roles.HRAdmin)]
         public async Task<IActionResult> UpdateEmployee(int id, [FromBody] EmployeeUpdateRequestDto dto)
         {
             var result = await _employeeService.UpdateEmployeeAsync(id, dto);
@@ -52,7 +53,7 @@ namespace HRMS.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = AppConstants.Roles.Admin)]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
             var userId = GetCurrentUserId();

@@ -77,9 +77,10 @@ public partial class Program
         {
             options.AddPolicy("AllowAll", policy =>
             {
-                policy.AllowAnyOrigin()
-                       .AllowAnyMethod()
-                       .AllowAnyHeader();
+                policy.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
             });
         });
 
@@ -113,8 +114,9 @@ public partial class Program
             await next();
         });
 
+        app.UseCors("AllowAll");
         app.UseMiddleware<GlobalExceptionMiddleware>();
-        app.UseHttpsRedirection();
+        //app.UseHttpsRedirection();
         app.UseAuthentication();
         app.UseAuthorization();
         app.MapControllers();

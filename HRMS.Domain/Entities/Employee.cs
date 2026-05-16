@@ -16,8 +16,8 @@
         public Designation Designation { get; set; } = null!;
         public EmploymentStatus EmploymentStatus { get; set; }=null!;
         public User User { get; set; }=null!;
-        public Salary Salary { get; set; } = new Salary();
-        public Payroll Payroll { get; set; }=new Payroll();
+        public Salary Salary { get; set; } = null!;
+        public Payroll Payroll { get; set; } = null!;
 
     }
 }

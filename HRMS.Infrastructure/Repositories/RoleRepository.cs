@@ -37,7 +37,7 @@ namespace HRMS.Infrastructure.Repositories
             var totalCount = await query.CountAsync();
 
             var Role = await query
-                                .Skip((parameters.PageSize - 1) * totalCount)
+                                .Skip((parameters.PageNumber - 1) * totalCount)
                                 .Take(parameters.PageSize)
                                 .ToListAsync();
             return (Role, totalCount);
@@ -80,9 +80,19 @@ namespace HRMS.Infrastructure.Repositories
                 throw new Exception("Role not found");
             }
 
+            var duplicate = await _hrmsDbContext.Roles
+                                    .AnyAsync(x => x.RoleName == Role.RoleName
+                                                && x.Id != id
+                                                && x.IsActive);
+
+            if (duplicate)
+                throw new InvalidOperationException("A role with this name already exists.");
+
+            existingRole.RoleName=Role.RoleName;
+            existingRole.RoleDisplayName=Role.RoleDisplayName;
+            existingRole.UpdatedBy = Role.UpdatedBy;
             existingRole.UpdatedAt = DateTime.UtcNow;
 
-            //await _hrmsDbContext.Roles.UpdateAsync(Role);
             return existingRole;
         }
 

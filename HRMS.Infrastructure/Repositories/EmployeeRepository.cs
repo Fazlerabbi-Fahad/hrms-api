@@ -61,7 +61,7 @@ namespace HRMS.Infrastructure.Repositories
                 var totalCount = await query.CountAsync();
 
                 var employee = await query
-                                    .Skip((parameters.PageSize - 1) * totalCount)
+                                    .Skip((parameters.PageNumber - 1) * totalCount)
                                     .Take(parameters.PageSize)
                                     .ToListAsync();
                 return (employee, totalCount);
@@ -110,10 +110,29 @@ namespace HRMS.Infrastructure.Repositories
                 _logger.LogWarning("Employee not found!", employee.Name);
                 throw new Exception("Employee not found");
             }
+            var duplicate = await _hrmsDbContext.Employees
+                .AnyAsync(x => x.Id != id
+                            && x.IsActive
+                            && (x.Name == employee.Name
+                                || x.Email == employee.Email
+                                || x.PhoneNumber == employee.PhoneNumber));
 
+
+            if (duplicate)
+                throw new InvalidOperationException("An employee with this name already exists.");
+
+
+            existingEmployee.Name = employee.Name;
+            existingEmployee.Email = employee.Email;
+            existingEmployee.PhoneNumber = employee.PhoneNumber;
+            existingEmployee.JoiningDate = employee.JoiningDate;
+            existingEmployee.DateOfBirth = employee.DateOfBirth;
+            existingEmployee.DepartmentId = employee.DepartmentId;
+            existingEmployee.DesignationId = employee.DesignationId;
+            existingEmployee.EmploymentStatusId = employee.EmploymentStatusId;
+            existingEmployee.UpdatedBy = employee.UpdatedBy;
             existingEmployee.UpdatedAt = DateTime.UtcNow;
 
-            //await _hrmsDbContext.Employees.UpdateAsync(employee);
             return existingEmployee;
         }
 

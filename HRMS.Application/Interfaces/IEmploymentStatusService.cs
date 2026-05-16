@@ -5,7 +5,7 @@ namespace HRMS.Application.Interfaces
 {
     public interface IEmploymentStatusService
     {
-        Task<ApiResponse<PagedResult<EmploymentStatusResponseDto>>> GetAllEmploymentStatussAsync(EmploymentStatusQueryParameters parameters);
+        Task<ApiResponse<PagedResult<EmploymentStatusResponseDto>>> GetAllEmploymentStatussAsync(QueryParameters parameters);
         Task<ApiResponse<EmploymentStatusResponseDto>> GetEmploymentStatusByIdAsync(int id);
         Task<ApiResponse<EmploymentStatusResponseDto>> CreateEmploymentStatusAsync(EmploymentStatusRequestDto dto);
         Task<ApiResponse<EmploymentStatusResponseDto>> UpdateEmploymentStatusAsync(int id, EmploymentStatusUpdateRequestDto dto);

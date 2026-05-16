@@ -24,7 +24,7 @@ namespace HRMS.Application.Services
             _logger = logger;
         }
 
-        public async Task<ApiResponse<PagedResult<EmploymentStatusResponseDto>>> GetAllEmploymentStatussAsync(EmploymentStatusQueryParameters parameters)
+        public async Task<ApiResponse<PagedResult<EmploymentStatusResponseDto>>> GetAllEmploymentStatussAsync(QueryParameters parameters)
         {
             var cacheKey = CacheKeys.EmploymentStatusList(
                     parameters.PageNumber,

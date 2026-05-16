@@ -106,9 +106,29 @@ namespace HRMS.Infrastructure.Repositories
                 throw new Exception("Salary not found");
             }
 
+            var duplicate = await _hrmsDbContext.Salaries
+                                    .AnyAsync(x => x.EmployeeId == Salary.EmployeeId
+                                                && existingSalary.BasicSalary == Salary.BasicSalary
+                                                && existingSalary.HouseAllowance == Salary.HouseAllowance
+                                                && existingSalary.MedicalAllowance == Salary.MedicalAllowance
+                                                && existingSalary.TransportAllowance == Salary.TransportAllowance
+                                                && existingSalary.EffectiveFrom == Salary.EffectiveFrom
+                                                && existingSalary.EffectiveTo == Salary.EffectiveTo
+                                                && x.Id != id
+                                                && x.IsActive);
+
+            if (duplicate)
+                throw new InvalidOperationException("A salary for this employee already exists.");
+
+            existingSalary.EmployeeId = Salary.EmployeeId;
+            existingSalary.BasicSalary = Salary.BasicSalary;
+            existingSalary.HouseAllowance = Salary.HouseAllowance;
+            existingSalary.MedicalAllowance = Salary.MedicalAllowance;
+            existingSalary.TransportAllowance = Salary.TransportAllowance;
+            existingSalary.EffectiveFrom = Salary.EffectiveFrom;
+            existingSalary.EffectiveTo = Salary.EffectiveTo;
             existingSalary.UpdatedAt = DateTime.UtcNow;
 
-            //await _hrmsDbContext.Salarys.UpdateAsync(Salary);
             return existingSalary;
         }
 
@@ -122,7 +142,6 @@ namespace HRMS.Infrastructure.Repositories
             Salary.IsActive = false;
             Salary.UpdatedAt = DateTime.UtcNow;
             Salary.UpdatedBy = userId;
-
 
             return true;
         }

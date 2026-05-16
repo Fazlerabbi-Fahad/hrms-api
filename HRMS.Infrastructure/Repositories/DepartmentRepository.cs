@@ -37,7 +37,7 @@ namespace HRMS.Infrastructure.Repositories
             var totalCount = await query.CountAsync();
 
             var Department = await query
-                                .Skip((parameters.PageSize - 1) * totalCount)
+                                .Skip((parameters.PageNumber - 1) * totalCount)
                                 .Take(parameters.PageSize)
                                 .ToListAsync();
             return (Department, totalCount);
@@ -71,18 +71,31 @@ namespace HRMS.Infrastructure.Repositories
             return Department;
         }
 
-        public async Task<Department> UpdateDepartmentAsync(int id, Department Department)
+        public async Task<Department> UpdateDepartmentAsync(int id, Department department)
         {
-            var existingDepartment = await _hrmsDbContext.Departments.Where(x => x.Id == id && x.IsActive).FirstOrDefaultAsync();
+            var existingDepartment = await _hrmsDbContext.Departments
+                                                         .FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
+
             if (existingDepartment == null)
             {
-                _logger.LogWarning("Department not found!", Department.DepartmentName);
+                _logger.LogWarning("Department not found!");
                 throw new Exception("Department not found");
             }
 
+            var duplicate = await _hrmsDbContext.Departments
+                                                .AnyAsync(x => x.DepartmentName == department.DepartmentName
+                                                            && x.Id != id
+                                                            && x.IsActive);
+
+            if (duplicate)
+                throw new InvalidOperationException("A department with this name already exists.");
+
+
+            existingDepartment.DepartmentName = department.DepartmentName;
+            existingDepartment.DepartmentDisplayName = department.DepartmentDisplayName;
+            existingDepartment.UpdatedBy = department.UpdatedBy;
             existingDepartment.UpdatedAt = DateTime.UtcNow;
 
-            //await _hrmsDbContext.Departments.UpdateAsync(Department);
             return existingDepartment;
         }
 

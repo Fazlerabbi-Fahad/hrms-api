@@ -24,7 +24,7 @@ namespace HRMS.Application.Services
             _logger = logger;
         }
 
-        public async Task<ApiResponse<PagedResult<DesignationResponseDto>>> GetAllDesignationsAsync(DesignationQueryParameters parameters)
+        public async Task<ApiResponse<PagedResult<DesignationResponseDto>>> GetAllDesignationsAsync(QueryParameters parameters)
         {
             var cacheKey = CacheKeys.DesignationList(
                     parameters.PageNumber,

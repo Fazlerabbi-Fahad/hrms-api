@@ -10,7 +10,7 @@ namespace HRMS.Application.Mappers
             return new PaymentStatusResponseDto
             {
                 Id = PaymentStatus.Id,
-                PaymentStatusName = PaymentStatus.PaymentStatusName,
+                StatusName = PaymentStatus.StatusName,
             };
         }
         public static List<PaymentStatusResponseDto> ToResponseDtoList(List<PaymentStatus> PaymentStatuss)

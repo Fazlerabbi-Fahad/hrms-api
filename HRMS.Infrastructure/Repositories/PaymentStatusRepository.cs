@@ -37,7 +37,7 @@ namespace HRMS.Infrastructure.Repositories
             var totalCount = await query.CountAsync();
 
             var PaymentStatus = await query
-                                .Skip((parameters.PageSize - 1) * totalCount)
+                                .Skip((parameters.PageNumber - 1) * totalCount)
                                 .Take(parameters.PageSize)
                                 .ToListAsync();
             return (PaymentStatus, totalCount);
@@ -80,9 +80,19 @@ namespace HRMS.Infrastructure.Repositories
                 throw new Exception("PaymentStatus not found");
             }
 
+            var duplicate = await _hrmsDbContext.PaymentStatuses
+                                    .AnyAsync(x => x.StatusName == PaymentStatus.StatusName
+                                                && x.Id != id
+                                                && x.IsActive);
+
+            if (duplicate)
+                throw new InvalidOperationException("A payment status with this name already exists.");
+
+            existingPaymentStatus.StatusName = PaymentStatus.StatusName;
+            existingPaymentStatus.StatusDisplayName = PaymentStatus.StatusDisplayName;
+            existingPaymentStatus.UpdatedBy = PaymentStatus.UpdatedBy;
             existingPaymentStatus.UpdatedAt = DateTime.UtcNow;
 
-            //await _hrmsDbContext.PaymentStatuss.UpdateAsync(PaymentStatus);
             return existingPaymentStatus;
         }
 

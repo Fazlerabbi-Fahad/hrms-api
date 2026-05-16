@@ -24,23 +24,23 @@ namespace HRMS.Application.Services
             _logger = logger;
         }
 
-        public async Task<ApiResponse<PagedResult<DepartmentResponseDto>>> GetAllDepartmentsAsync(DepartmentQueryParameters parameters)
+        public async Task<ApiResponse<PagedResult<DepartmentResponseDto>>> GetAllDepartmentsAsync(QueryParameters parameters)
         {
-            var cacheKey = CacheKeys.DepartmentList(
-                    parameters.PageNumber,
-                    parameters.PageSize,
-                    parameters.Search
-                );
+            //var cacheKey = CacheKeys.DepartmentList(
+            //        parameters.PageNumber,
+            //        parameters.PageSize,
+            //        parameters.Search
+            //    );
 
 
-            var cached = _cacheService.Get<PagedResult<DepartmentResponseDto>>(cacheKey);
-            if (cached != null)
-            {
-                _logger.LogInformation("Departments retrieved from cache with key {CacheKey}", cacheKey);
-                return ApiResponse<PagedResult<DepartmentResponseDto>>.Success(cached,
-                                    $"Retrieved Departments successfully!"
-                            );
-            }
+            //var cached = _cacheService.Get<PagedResult<DepartmentResponseDto>>(cacheKey);
+            //if (cached != null)
+            //{
+            //    _logger.LogInformation("Departments retrieved from cache with key {CacheKey}", cacheKey);
+            //    return ApiResponse<PagedResult<DepartmentResponseDto>>.Success(cached,
+            //                        $"Retrieved Departments successfully!"
+            //                );
+            //}
 
             var (Departments, totalCoount) = await _DepartmentRepository.GetAllDepartmentsAsync(parameters);
 
@@ -54,7 +54,7 @@ namespace HRMS.Application.Services
                 PageSize = parameters.PageSize
             };
 
-            _cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
+            //_cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
 
             return ApiResponse<PagedResult<DepartmentResponseDto>>.Success(pagedResult, AppConstants.Messages.Success);
         }
@@ -133,15 +133,19 @@ namespace HRMS.Application.Services
                     UpdatedBy = dto.UserId
                 };
 
-                var Department = await _unitOfWork.Departments.UpdateDepartmentAsync(id, updateDepartmentDto);
+                var department = await _unitOfWork.Departments.UpdateDepartmentAsync(id, updateDepartmentDto);
+
+                //if (department == null) return ApiResponse.<DepartmentResponseDto>;
+
+
                 await _unitOfWork.SaveChangesAsync();
                 await _unitOfWork.CommitTransactionAsync();
 
                 _cacheService.Remove(CacheKeys.DepartmentList(1, int.MaxValue, null));
 
-                var updatedDepartmentDto = DepartmentMapper.ToResponseDto(Department);
+                var updatedDepartmentDto = DepartmentMapper.ToResponseDto(department);
                 return ApiResponse<DepartmentResponseDto>.Success(updatedDepartmentDto,
-                                        Department != null ? "Department updated successfully!"
+                                        department != null ? "Department updated successfully!"
                                             : "Department update failed!"
                 );
             }

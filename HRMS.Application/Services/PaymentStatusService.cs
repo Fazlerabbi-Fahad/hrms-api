@@ -24,7 +24,7 @@ namespace HRMS.Application.Services
             _logger = logger;
         }
 
-        public async Task<ApiResponse<PagedResult<PaymentStatusResponseDto>>> GetAllPaymentStatussAsync(PaymentStatusQueryParameters parameters)
+        public async Task<ApiResponse<PagedResult<PaymentStatusResponseDto>>> GetAllPaymentStatussAsync(QueryParameters parameters)
         {
             var cacheKey = CacheKeys.PaymentStatusList(
                     parameters.PageNumber,

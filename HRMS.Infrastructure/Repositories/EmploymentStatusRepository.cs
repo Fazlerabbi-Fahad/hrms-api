@@ -37,7 +37,7 @@ namespace HRMS.Infrastructure.Repositories
             var totalCount = await query.CountAsync();
 
             var EmploymentStatus = await query
-                                .Skip((parameters.PageSize - 1) * totalCount)
+                                .Skip((parameters.PageNumber - 1) * totalCount)
                                 .Take(parameters.PageSize)
                                 .ToListAsync();
             return (EmploymentStatus, totalCount);
@@ -80,9 +80,19 @@ namespace HRMS.Infrastructure.Repositories
                 throw new Exception("EmploymentStatus not found");
             }
 
+            var duplicate = await _hrmsDbContext.EmploymentStatuses
+                                    .AnyAsync(x => x.StatusName == EmploymentStatus.StatusName
+                                                && x.Id != id
+                                                && x.IsActive);
+
+            if (duplicate)
+                throw new InvalidOperationException("An employment status with this name already exists.");
+
+            existingEmploymentStatus.StatusName = EmploymentStatus.StatusName;
+            existingEmploymentStatus.StatusDisplayName = EmploymentStatus.StatusDisplayName;
+            existingEmploymentStatus.UpdatedBy = EmploymentStatus.UpdatedBy;
             existingEmploymentStatus.UpdatedAt = DateTime.UtcNow;
 
-            //await _hrmsDbContext.EmploymentStatuss.UpdateAsync(EmploymentStatus);
             return existingEmploymentStatus;
         }
 

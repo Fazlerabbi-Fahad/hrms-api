@@ -24,7 +24,7 @@ namespace HRMS.Application.Services
             _logger = logger;
         }
 
-        public async Task<ApiResponse<PagedResult<RoleResponseDto>>> GetAllRolesAsync(RoleQueryParameters parameters)
+        public async Task<ApiResponse<PagedResult<RoleResponseDto>>> GetAllRolesAsync(QueryParameters parameters)
         {
             var cacheKey = CacheKeys.RoleList(
                     parameters.PageNumber,
@@ -91,6 +91,7 @@ namespace HRMS.Application.Services
                 var newRole = new Role
                 {
                     RoleName = dto.RoleName,
+                    RoleDisplayName= dto.RoleName,
                     CreatedAt = DateTime.UtcNow,
                     CreatedBy = dto.Id
                 };

@@ -5,7 +5,7 @@ namespace HRMS.Application.Interfaces
 {
     public interface IRoleService
     {
-        Task<ApiResponse<PagedResult<RoleResponseDto>>> GetAllRolesAsync(RoleQueryParameters parameters);
+        Task<ApiResponse<PagedResult<RoleResponseDto>>> GetAllRolesAsync(QueryParameters parameters);
         Task<ApiResponse<RoleResponseDto>> GetRoleByIdAsync(int id);
         Task<ApiResponse<RoleResponseDto>> CreateRoleAsync(RoleRequestDto dto);
         Task<ApiResponse<RoleResponseDto>> UpdateRoleAsync(int id, RoleUpdateRequestDto dto);

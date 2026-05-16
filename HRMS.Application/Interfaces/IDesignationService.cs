@@ -5,7 +5,7 @@ namespace HRMS.Application.Interfaces
 {
     public interface IDesignationService
     {
-        Task<ApiResponse<PagedResult<DesignationResponseDto>>> GetAllDesignationsAsync(DesignationQueryParameters parameters);
+        Task<ApiResponse<PagedResult<DesignationResponseDto>>> GetAllDesignationsAsync(QueryParameters parameters);
         Task<ApiResponse<DesignationResponseDto>> GetDesignationByIdAsync(int id);
         Task<ApiResponse<DesignationResponseDto>> CreateDesignationAsync(DesignationRequestDto dto);
         Task<ApiResponse<DesignationResponseDto>> UpdateDesignationAsync(int id, DesignationUpdateRequestDto dto);

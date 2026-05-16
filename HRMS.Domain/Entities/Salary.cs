@@ -10,6 +10,7 @@
         public DateTime? EffectiveFrom { get; set; }
         public DateTime EffectiveTo { get; set; }
         public Employee Employee { get; set; } = null!;
-        public Payroll Payroll { get; set; } = new Payroll();
+        public Payroll Payroll { get; set; } = null!;
     }
 }
+

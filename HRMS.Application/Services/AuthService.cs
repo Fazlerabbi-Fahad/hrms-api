@@ -84,6 +84,8 @@ namespace HRMS.Application.Services
                 UserRoles = dto.RoleIds.Select(roleId => new UserRole
                 {
                     RoleId = roleId,
+                    IsActive=true,
+                    CreatedAt = DateTime.UtcNow,
                     AssignedAt = DateTime.UtcNow
                 }).ToList()
             };

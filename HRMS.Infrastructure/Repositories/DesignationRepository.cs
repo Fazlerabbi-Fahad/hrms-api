@@ -37,7 +37,7 @@ namespace HRMS.Infrastructure.Repositories
             var totalCount = await query.CountAsync();
 
             var Designation = await query
-                                .Skip((parameters.PageSize - 1) * totalCount)
+                                .Skip((parameters.PageNumber - 1) * totalCount)
                                 .Take(parameters.PageSize)
                                 .ToListAsync();
             return (Designation, totalCount);
@@ -80,9 +80,19 @@ namespace HRMS.Infrastructure.Repositories
                 throw new Exception("Designation not found");
             }
 
+            var duplicate = await _hrmsDbContext.Departments
+                                                .AnyAsync(x => x.DepartmentName == Designation.DesignationName
+                                                            && x.Id != id
+                                                            && x.IsActive);
+
+            if (duplicate)
+                throw new InvalidOperationException("A designation with this name already exists.");
+
+            existingDesignation.DesignationName= Designation.DesignationName;
+            existingDesignation.DesignationDisplayName = Designation.DesignationDisplayName;
+            existingDesignation.UpdatedBy = Designation.UpdatedBy;
             existingDesignation.UpdatedAt = DateTime.UtcNow;
 
-            //await _hrmsDbContext.Designations.UpdateAsync(Designation);
             return existingDesignation;
         }
 

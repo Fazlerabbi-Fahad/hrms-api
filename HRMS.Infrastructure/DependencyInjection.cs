@@ -26,6 +26,8 @@ namespace HRMS.Infrastructure
             services.AddScoped<IEmploymentStatusRepository, EmploymentStatusRepository>();
             services.AddScoped<IPaymentStatusRepository, PaymentStatusRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IPayrollRepository, PayrollRepository>();
+            services.AddScoped<IMenuRepository, MenuRepository>();
 
             services.AddScoped<ITokenService, TokenService>();
 

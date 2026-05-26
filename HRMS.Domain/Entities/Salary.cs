@@ -7,6 +7,7 @@
         public decimal HouseAllowance { get; set; }
         public decimal MedicalAllowance { get; set; }
         public decimal? TransportAllowance { get; set; }
+        public decimal? Bonus { get; set; }
         public DateTime? EffectiveFrom { get; set; }
         public DateTime EffectiveTo { get; set; }
         public Employee Employee { get; set; } = null!;

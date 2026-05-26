@@ -20,7 +20,7 @@ namespace HRMS.Infrastructure.Repositories
 
         public async Task<(List<Salary>, int totalCount)> GetAllSalaryAsync(SalaryQueryParameters parameters)
         {
-            var query = _hrmsDbContext.Salaries.Where(e => e.IsActive);
+            var query = _hrmsDbContext.Salaries.Include(x=>x.Employee).Where(e => e.IsActive);
 
             if (parameters.EmployeeId.HasValue)
             {
@@ -69,6 +69,7 @@ namespace HRMS.Infrastructure.Repositories
         {
             return await _hrmsDbContext.Salaries
                 .Where(e => e.Id == id && e.IsActive)
+                .Include(x => x.Employee)
                 .FirstOrDefaultAsync();
         }
 
@@ -145,5 +146,17 @@ namespace HRMS.Infrastructure.Repositories
 
             return true;
         }
+
+        public async Task<Salary?> GetActiveSalaryAsync(int employeeId)
+        {
+            return await _hrmsDbContext.Salaries
+                .Where(s => s.EmployeeId == employeeId
+                         && s.EffectiveFrom <= DateTime.UtcNow
+                         && (s.EffectiveTo == null ||
+                             s.EffectiveTo > DateTime.UtcNow))
+                .OrderByDescending(s => s.EffectiveFrom)
+                .FirstOrDefaultAsync();
+        }
+
     }
 }

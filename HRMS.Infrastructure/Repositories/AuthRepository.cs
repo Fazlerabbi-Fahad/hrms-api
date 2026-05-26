@@ -40,6 +40,7 @@ namespace HRMS.Infrastructure.Repositories
         {
             
             await _hrmsDbContext.Users.AddAsync(user);
+            await _hrmsDbContext.SaveChangesAsync();
 
             return user;
         }

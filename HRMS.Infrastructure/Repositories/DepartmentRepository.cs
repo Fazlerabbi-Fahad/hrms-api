@@ -37,7 +37,7 @@ namespace HRMS.Infrastructure.Repositories
             var totalCount = await query.CountAsync();
 
             var Department = await query
-                                .Skip((parameters.PageNumber - 1) * totalCount)
+                                .Skip((parameters.PageNumber - 1) * parameters.PageSize)
                                 .Take(parameters.PageSize)
                                 .ToListAsync();
             return (Department, totalCount);

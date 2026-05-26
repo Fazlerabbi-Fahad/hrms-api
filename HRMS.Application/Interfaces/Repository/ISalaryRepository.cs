@@ -10,5 +10,6 @@ namespace HRMS.Application.Interfaces.Repository
         Task<Salary> CreateSalaryAsync(Salary Salary);
         Task<Salary> UpdateSalaryAsync(int id, Salary Salary);
         Task<bool> DeleteSalaryAsync(int id, int userId);
+        Task<Salary?> GetActiveSalaryAsync(int employeeId);
     }
 }

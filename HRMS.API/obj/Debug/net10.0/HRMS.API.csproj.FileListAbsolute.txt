@@ -19,12 +19,9 @@ F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\HRMS.API.pdb
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Asp.Versioning.Abstractions.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Asp.Versioning.Http.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Asp.Versioning.Mvc.dll
-F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Azure.Core.dll
-F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Azure.Identity.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\BCrypt-Net-Next.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Humanizer.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Build.Framework.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Build.Tasks.Core.dll
@@ -43,8 +40,6 @@ F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.EntityFramewo
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll
-F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Identity.Client.dll
-F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
@@ -72,7 +67,6 @@ F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Serilog.Sinks.File.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.ClientModel.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.CodeDom.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.Composition.AttributedModel.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.Composition.Convention.dll
@@ -82,7 +76,6 @@ F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.Composition.Type
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.Formats.Nrbf.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
-F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.Memory.Data.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.Resources.Extensions.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
@@ -183,10 +176,12 @@ F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\staticwebassets.build.j
 F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\staticwebassets.development.json
 F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\swae.build.ex.cache
-F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\HRMS.API.csproj.Up2Date
 F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\HRMS.API.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\refint\HRMS.API.dll
 F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\HRMS.API.pdb
 F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\HRMS.API.genruntimeconfig.cache
 F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\ref\HRMS.API.dll
+F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Data.SqlClient.Extensions.Abstractions.dll
+F:\Applications\HRMS\HRMS-API\HRMS.API\bin\Debug\net10.0\Microsoft.Data.SqlClient.Internal.Logging.dll
+F:\Applications\HRMS\HRMS-API\HRMS.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

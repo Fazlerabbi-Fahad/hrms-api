@@ -26,21 +26,21 @@ namespace HRMS.Application.Services
 
         public async Task<ApiResponse<PagedResult<DesignationResponseDto>>> GetAllDesignationsAsync(QueryParameters parameters)
         {
-            var cacheKey = CacheKeys.DesignationList(
-                    parameters.PageNumber,
-                    parameters.PageSize,
-                    parameters.Search
-                );
+            //var cacheKey = CacheKeys.DesignationList(
+            //        parameters.PageNumber,
+            //        parameters.PageSize,
+            //        parameters.Search
+            //    );
 
 
-            var cached = _cacheService.Get<PagedResult<DesignationResponseDto>>(cacheKey);
-            if (cached != null)
-            {
-                _logger.LogInformation("Designations retrieved from cache with key {CacheKey}", cacheKey);
-                return ApiResponse<PagedResult<DesignationResponseDto>>.Success(cached,
-                                    $"Retrieved Designations successfully!"
-                            );
-            }
+            //var cached = _cacheService.Get<PagedResult<DesignationResponseDto>>(cacheKey);
+            //if (cached != null)
+            //{
+            //    _logger.LogInformation("Designations retrieved from cache with key {CacheKey}", cacheKey);
+            //    return ApiResponse<PagedResult<DesignationResponseDto>>.Success(cached,
+            //                        $"Retrieved Designations successfully!"
+            //                );
+            //}
 
             var (Designations, totalCoount) = await _DesignationRepository.GetAllDesignationsAsync(parameters);
 
@@ -54,7 +54,7 @@ namespace HRMS.Application.Services
                 PageSize = parameters.PageSize
             };
 
-            _cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
+            //_cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
 
             return ApiResponse<PagedResult<DesignationResponseDto>>.Success(pagedResult, AppConstants.Messages.Success);
         }

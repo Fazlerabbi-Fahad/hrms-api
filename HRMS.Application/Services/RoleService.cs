@@ -26,21 +26,21 @@ namespace HRMS.Application.Services
 
         public async Task<ApiResponse<PagedResult<RoleResponseDto>>> GetAllRolesAsync(QueryParameters parameters)
         {
-            var cacheKey = CacheKeys.RoleList(
-                    parameters.PageNumber,
-                    parameters.PageSize,
-                    parameters.Search
-                );
+            //var cacheKey = CacheKeys.RoleList(
+            //        parameters.PageNumber,
+            //        parameters.PageSize,
+            //        parameters.Search
+            //    );
 
 
-            var cached = _cacheService.Get<PagedResult<RoleResponseDto>>(cacheKey);
-            if (cached != null)
-            {
-                _logger.LogInformation("Roles retrieved from cache with key {CacheKey}", cacheKey);
-                return ApiResponse<PagedResult<RoleResponseDto>>.Success(cached,
-                                    $"Retrieved Roles successfully!"
-                            );
-            }
+            //var cached = _cacheService.Get<PagedResult<RoleResponseDto>>(cacheKey);
+            //if (cached != null)
+            //{
+            //    _logger.LogInformation("Roles retrieved from cache with key {CacheKey}", cacheKey);
+            //    return ApiResponse<PagedResult<RoleResponseDto>>.Success(cached,
+            //                        $"Retrieved Roles successfully!"
+            //                );
+            //}
 
             var (Rolees, totalCoount) = await _RoleRepository.GetAllRoleAsync(parameters);
 
@@ -54,7 +54,7 @@ namespace HRMS.Application.Services
                 PageSize = parameters.PageSize
             };
 
-            _cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
+            //_cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
 
             return ApiResponse<PagedResult<RoleResponseDto>>.Success(pagedResult, AppConstants.Messages.Success);
         }

@@ -10,6 +10,7 @@ namespace HRMS.Application.Mappers
             return new SalaryResponseDto
             {
                 Id = Salary.Id,
+                EmployeeName = Salary.Employee?.Name ?? string.Empty,
                 BasicSalary = Salary.BasicSalary,
                 HouseAllowance = Salary.HouseAllowance,
                 MedicalAllowance = Salary.MedicalAllowance,

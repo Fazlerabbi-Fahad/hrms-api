@@ -5,6 +5,7 @@ using HRMS.Application.DTOs.Role;
 using HRMS.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
 
 namespace HRMS.API.Controllers
 {
@@ -22,7 +23,7 @@ namespace HRMS.API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAllRoles([FromQuery] QueryParameters parameters)
         {
             var result = await _RoleService.GetAllRolesAsync(parameters);

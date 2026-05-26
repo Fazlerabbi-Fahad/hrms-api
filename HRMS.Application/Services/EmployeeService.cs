@@ -26,21 +26,21 @@ namespace HRMS.Application.Services
 
         public async Task<ApiResponse<PagedResult<EmployeeResponseDto>>> GetAllEmployeesAsync(EmployeeQueryParameters parameters)
         {
-            var cacheKey = CacheKeys.EmployeeList(
-                    parameters.PageNumber,
-                    parameters.PageSize,
-                    parameters.Search
-                );
+            //var cacheKey = CacheKeys.EmployeeList(
+            //        parameters.PageNumber,
+            //        parameters.PageSize,
+            //        parameters.Search
+            //    );
                 
 
-            var cached= _cacheService.Get<PagedResult<EmployeeResponseDto>>(cacheKey);
-            if(cached != null)
-            {
-                _logger.LogInformation("Employees retrieved from cache with key {CacheKey}", cacheKey);
-                return ApiResponse<PagedResult<EmployeeResponseDto>>.Success(cached,
-                                    $"Retrieved employees successfully!"
-                            );
-            }
+            //var cached= _cacheService.Get<PagedResult<EmployeeResponseDto>>(cacheKey);
+            //if(cached != null)
+            //{
+            //    _logger.LogInformation("Employees retrieved from cache with key {CacheKey}", cacheKey);
+            //    return ApiResponse<PagedResult<EmployeeResponseDto>>.Success(cached,
+            //                        $"Retrieved employees successfully!"
+            //                );
+            //}
 
             var (employees, totalCoount) = await _employeeRepository.GetAllEmployeesAsync(parameters);
 
@@ -54,7 +54,7 @@ namespace HRMS.Application.Services
                                         PageSize = parameters.PageSize
                                     };
             
-            _cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
+            //_cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
 
             return ApiResponse<PagedResult<EmployeeResponseDto>>.Success(pagedResult,AppConstants.Messages.Success);
         }
@@ -68,7 +68,7 @@ namespace HRMS.Application.Services
             if(cached != null)
             {
                 _logger.LogInformation("Employee retrieved from cache with key {CacheKey}", cacheKey);
-                return ApiResponse<EmployeeResponseDto>.Success(cached, AppConstants.Messages.Success);
+                //return ApiResponse<EmployeeResponseDto>.Success(cached, AppConstants.Messages.Success);
             }
 
             var employee = await _employeeRepository.GetEmployeeByIdAsync(id);
@@ -95,6 +95,7 @@ namespace HRMS.Application.Services
                     PhoneNumber = dto.PhoneNumber,
                     JoiningDate = dto.JoiningDate,
                     DateOfBirth = dto.DateOfBirth,
+                    //Address = dto.Address,
                     DepartmentId = dto.DepartmentId,
                     DesignationId = dto.DesignationId,
                     EmploymentStatusId = dto.EmploymentStatusId,
@@ -105,11 +106,13 @@ namespace HRMS.Application.Services
                
 
                 await _unitOfWork.SaveChangesAsync();
+                var createdEmployee = await _unitOfWork.Employees.GetEmployeeByIdAsync(employee.Id);
+
                 await _unitOfWork.CommitTransactionAsync();
 
                 _cacheService.Remove(CacheKeys.EmployeeList(1, int.MaxValue, null));
+                var createdEmployeeDto = EmployeeMapper.ToResponseDto(createdEmployee);
 
-                var createdEmployeeDto = EmployeeMapper.ToResponseDto(employee);
 
 
 

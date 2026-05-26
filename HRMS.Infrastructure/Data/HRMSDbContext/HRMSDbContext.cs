@@ -19,6 +19,8 @@ namespace HRMS.Infrastructure.Data.HRMSDbContext
         public DbSet<Role> Roles => Set<Role>();
         public DbSet<User> Users => Set<User>();
         public DbSet<UserRole> UserRoles => Set<UserRole>();
+        public DbSet<Menu> Menu => Set<Menu>();
+        public DbSet<UserWiseMenuInformation> UserWiseMenuInformations => Set<UserWiseMenuInformation>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

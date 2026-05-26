@@ -61,7 +61,7 @@ namespace HRMS.Infrastructure.Repositories
                 var totalCount = await query.CountAsync();
 
                 var employee = await query
-                                    .Skip((parameters.PageNumber - 1) * totalCount)
+                                    .Skip((parameters.PageNumber - 1) * parameters.PageSize)
                                     .Take(parameters.PageSize)
                                     .ToListAsync();
                 return (employee, totalCount);

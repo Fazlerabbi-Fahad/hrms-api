@@ -25,6 +25,9 @@ namespace HRMS.Infrastructure.Data.Configurations
                   .IsRequired()
                   .HasMaxLength(100);
 
+            //builder.Property(e => e.Address)
+            //      .HasMaxLength(250);
+
             builder.HasIndex(e => e.Email)
                    .IsUnique()
                    .HasFilter("[Email] IS NOT NULL"); 

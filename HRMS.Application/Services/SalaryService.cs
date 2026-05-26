@@ -26,21 +26,21 @@ namespace HRMS.Application.Services
 
         public async Task<ApiResponse<PagedResult<SalaryResponseDto>>> GetAllSalarysAsync(SalaryQueryParameters parameters)
         {
-            var cacheKey = CacheKeys.SalaryList(
-                    parameters.PageNumber,
-                    parameters.PageSize,
-                    parameters.Search
-                );
+            //var cacheKey = CacheKeys.SalaryList(
+            //        parameters.PageNumber,
+            //        parameters.PageSize,
+            //        parameters.Search
+            //    );
 
 
-            var cached = _cacheService.Get<PagedResult<SalaryResponseDto>>(cacheKey);
-            if (cached != null)
-            {
-                _logger.LogInformation("Salarys retrieved from cache with key {CacheKey}", cacheKey);
-                return ApiResponse<PagedResult<SalaryResponseDto>>.Success(cached,
-                                    $"Retrieved Salarys successfully!"
-                            );
-            }
+            //var cached = _cacheService.Get<PagedResult<SalaryResponseDto>>(cacheKey);
+            //if (cached != null)
+            //{
+            //    _logger.LogInformation("Salarys retrieved from cache with key {CacheKey}", cacheKey);
+            //    return ApiResponse<PagedResult<SalaryResponseDto>>.Success(cached,
+            //                        $"Retrieved Salarys successfully!"
+            //                );
+            //}
 
             var (Salarys, totalCoount) = await _SalaryRepository.GetAllSalaryAsync(parameters);
 
@@ -54,7 +54,7 @@ namespace HRMS.Application.Services
                 PageSize = parameters.PageSize
             };
 
-            _cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
+            //_cacheService.Set(cacheKey, pagedResult, TimeSpan.FromMinutes(5));
 
             return ApiResponse<PagedResult<SalaryResponseDto>>.Success(pagedResult, AppConstants.Messages.Success);
         }

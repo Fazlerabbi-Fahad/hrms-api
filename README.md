@@ -231,12 +231,9 @@ HRMS.slnx
 
 ## Roadmap
 
-- [ ] Unit and integration test suites (xUnit + `WebApplicationFactory`)
-- [ ] Docker Compose for API + SQL Server
 - [ ] Re-enable list-level response caching with proper invalidation on write
 - [ ] Refresh tokens
 - [ ] FluentValidation for request DTOs
-- [ ] CI pipeline (build + test on push)
 
 ---
 
